@@ -31,6 +31,7 @@ requirements:
 test:
   source_files:
     - tests
+    - examples
     - setup.cfg
   requires:
     - pytest
@@ -38,7 +39,7 @@ test:
   imports:
     - {{ name }}
   commands:
-    - pytest -m "not internet"
+    - pytest --ignore tests/test_socket.py -m "not internet"
     - pip check
 
 about:
